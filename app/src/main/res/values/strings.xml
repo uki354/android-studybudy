@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">StuddyBuddy</string>
+    <string name="GenderMale">Male</string>
+    <string name="GenderFemale">Female</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="submit">SUBMIT</string>
 </resources>
