@@ -31,13 +31,6 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <fragment
-            android:id="@+id/fragment_1"
-            android:name="com.example.studdybuddy.Fragment1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/landing_page_fragment_layout" />
-
     </FrameLayout>
 
     <LinearLayout

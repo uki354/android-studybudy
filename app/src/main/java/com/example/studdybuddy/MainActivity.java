@@ -2,7 +2,10 @@ package com.example.studdybuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ((Fragment1) fragment).getTextView().setText(landingPageText[count]);
                 button.setText("START");
             }else{
-
+                Intent intent = new Intent(getApplicationContext(), AuthActivity.class);
+                startActivity(intent);
             }
         }
         return fragment;
@@ -48,7 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         count = 0;
         button = findViewById(R.id.switch_fragments_button);
         button.setOnClickListener(this);
-        fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_1);
-        ((Fragment1)fragment).getTextView().setText(landingPageText[count]);
+        fragment = new Fragment1();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.fragment_container,fragment);
+        transaction.commit();
     }
 }
