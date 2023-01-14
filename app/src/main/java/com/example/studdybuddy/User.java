@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class User {
 
+    private int id;
     private String email;
     private String password;
     private String name;
@@ -11,6 +12,9 @@ public class User {
     private Boolean gender;
     private String university;
     private Date birthdate;
+    private int age;
+    private String currentAddress;
+    private String imagePath;
     private String jwt;
 
     public String getJwt() {
@@ -75,5 +79,37 @@ public class User {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getCurrentAddress() {
+        return currentAddress;
+    }
+
+    public void setCurrentAddress(String currentAddress) {
+        this.currentAddress = currentAddress;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

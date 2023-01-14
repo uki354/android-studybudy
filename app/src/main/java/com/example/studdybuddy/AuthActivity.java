@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.studdybuddy.SearchActivity.SearchActivity;
 
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +29,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button loginBtn;
     private Button signUpBtn;
+    private Button submit;
 
 
     @Override
@@ -48,6 +52,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         transaction.commit();
         loginBtn = findViewById(R.id.signup);
         signUpBtn = findViewById(R.id.login);
+        submit = ((LoginFragment)loginFragment).getSubmitBtn();
         loginBtn.setOnClickListener(this);
         signUpBtn.setOnClickListener(this);
     }

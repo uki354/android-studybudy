@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Age"
+                    android:fontFamily="monospace"/>
+
+                <Spinner
+                    android:id="@+id/search_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:contentDescription="age"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:fontFamily="monospace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender" />
+
+                <Spinner
+                    android:id="@+id/search_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:contentDescription="gender"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:fontFamily="monospace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="University" />
+
+                <Spinner
+                    android:fontFamily="monospace"
+                    android:id="@+id/search_university"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:contentDescription="university"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:fontFamily="monospace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Range" />
+
+                <Spinner
+                    android:id="@+id/search_range"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:contentDescription="range"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/search_nearby"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Search nearby"
+                android:layout_weight="1"
+                android:background="@drawable/shape2"
+                android:textColor="@color/white"
+                android:fontFamily="monospace"
+                />
+            <Button
+                android:fontFamily="monospace"
+                android:id="@+id/search_submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:layout_weight="2"
+                android:background="@drawable/shape"
+                />
+
+        </LinearLayout>
+   </LinearLayout>
+
+    <ListView
+        android:id="@+id/user_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+
+</LinearLayout>
+
+
