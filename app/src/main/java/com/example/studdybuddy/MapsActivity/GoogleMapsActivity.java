@@ -54,9 +54,11 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    // show app user loc at map, add button to draw route between them
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMinZoomPreference(20);
         LatLng userLoc = new LatLng(Double.parseDouble(studyUser.getLat()), Double.parseDouble(studyUser.getLng()));
 
         mMap.addMarker(new MarkerOptions().position(userLoc).title(studyUser.getName() + studyUser.getLastname()));

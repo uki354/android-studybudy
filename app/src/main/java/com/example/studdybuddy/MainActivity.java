@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkIfAppIsUsedBefore();
         setContentView(R.layout.activity_main);
         initComponents();
     }
@@ -57,5 +59,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.fragment_container,fragment);
         transaction.commit();
+    }
+
+    private void checkIfAppIsUsedBefore(){
+        SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
+        String firstTime = myPrefs.getString("firstTime", "");
+        if (!firstTime.equals("")) {
+            Intent intent = new Intent(getApplicationContext(), AuthActivity.class);
+            startActivity(intent);
+        }else{
+            myPrefs.edit().putString("firstTime", "firstTime").apply();
+        }
     }
 }
