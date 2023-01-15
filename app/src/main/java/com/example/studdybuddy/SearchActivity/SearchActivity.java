@@ -2,6 +2,7 @@ package com.example.studdybuddy.SearchActivity;
 
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -11,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -24,6 +26,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.studdybuddy.MapsActivity.GoogleMapsActivity;
 import com.example.studdybuddy.R;
 import com.example.studdybuddy.User;
 
@@ -126,6 +129,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     user.setCurrentAddress(userJson.getString("currentStudyBuddyAddress"));
                     user.setUniversity(userJson.getString("university"));
                     user.setImagePath(userJson.getString("imagePath"));
+                    user.setLat(userJson.getString("lat"));
+                    user.setLng(userJson.getString("lng"));
                     //                    user.setBirthdate(userJson.getString("birthdate"));
                     user.setGender(userJson.getBoolean("gender"));
 
@@ -135,6 +140,18 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 ListView listView = findViewById(R.id.user_list);
                 UserAdapter userAdapter = new UserAdapter(this,R.layout.response_list_layout,users);
                 listView.setAdapter(userAdapter);
+                listView.setClickable(true);
+                listView.setOnItemClickListener((adapterView, view1, i, l) -> {
+                    User itemAtPosition = (User) adapterView.getItemAtPosition(i);
+                    System.out.println(itemAtPosition.getName());
+                    Intent intent = new Intent(getApplicationContext(), GoogleMapsActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("studyUser", itemAtPosition);
+                    bundle.putString("works", "valjda works");
+                    intent.putExtras(bundle);
+
+                    startActivity(intent);
+                });
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -184,7 +201,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 sb.append("lat=").append(currentLocation.getLatitude()).append("&lng=").append(currentLocation.getLongitude());
             }else if(SearchActivity.this.location != null ){
                 sb.append("lat=").append(SearchActivity.this.location.getLatitude()).append("&lng=").append(SearchActivity.this.location.getLongitude());
-            }
+            }else System.out.println("fuck");
 
         }
 
