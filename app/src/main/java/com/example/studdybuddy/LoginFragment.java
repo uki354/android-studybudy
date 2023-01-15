@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.studdybuddy.SearchActivity.SearchActivity;
 
-public class LoginFragment extends Fragment implements View.OnClickListener{
+public class LoginFragment extends Fragment{
 
     private EditText email;
     private EditText password;
@@ -27,22 +27,19 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         email = view.findViewById(R.id.login_email);
         password = view.findViewById(R.id.login_password);
         submit = view.findViewById(R.id.login_submit);
-        submit.setOnClickListener(this);
         return view;
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == submit.getId()){
-            Intent intent = new Intent(getActivity(), SearchActivity.class);
-            startActivity(intent);
-        }
-    }
 
     public Button getSubmitBtn(){
         return  this.submit;
     }
 
+    public EditText getEmail() {
+        return email;
+    }
 
-
+    public EditText getPassword() {
+        return password;
+    }
 }

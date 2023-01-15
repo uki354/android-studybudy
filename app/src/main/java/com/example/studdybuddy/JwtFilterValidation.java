@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.studdybuddy.SearchActivity.SearchActivity;
+
 public class JwtFilterValidation extends AuthChain{
 
     @Override
@@ -16,11 +18,13 @@ public class JwtFilterValidation extends AuthChain{
                 user.setJwt(token);
                 Bundle bundle = new Bundle();
                 bundle.putString(USER_INTENT_KEY, user.getJwt());
-                Intent intent = new Intent(activity,MainActivity.class);
+                Intent intent = new Intent(activity, SearchActivity.class);
                 intent.putExtras(bundle);
                 activity.startActivity(intent);
+                return true;
             }
         }
+        checkNext(user,activity);
         return false;
     }
 

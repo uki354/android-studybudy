@@ -15,9 +15,9 @@ public class JwtTokenManager {
         return prefs.getString(JWT_TOKEN_KEY, "");
     }
 
-    public static void storeTokenToDevice(Activity activity){
+    public static void storeTokenToDevice(Activity activity, String token){
         setPrefs(activity);
-        prefs.edit().putString(JWT_TOKEN_KEY, "").apply();
+        prefs.edit().putString(JWT_TOKEN_KEY, token).apply();
     }
 
     private static void setPrefs(Activity activity){

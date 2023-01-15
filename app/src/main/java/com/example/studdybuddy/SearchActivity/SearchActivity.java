@@ -76,8 +76,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions( permissions, 112);
-            }else lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
+            }
         }
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
     }
 
 

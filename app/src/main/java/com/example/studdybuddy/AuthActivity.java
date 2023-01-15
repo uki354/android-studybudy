@@ -1,16 +1,14 @@
 package com.example.studdybuddy;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.studdybuddy.SearchActivity.SearchActivity;
 
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,12 +21,12 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     private FragmentManager manager;
 
     public static final String USER_INTENT_KEY = "USER";
-    public static final String LOGIN_URL = "";
-    public static final String SIGNUP_URL = "";
+    public static final String LOGIN_URL = "http://10.0.2.2:8080/api/user/login";
+    public static final String SIGNUP_URL = "http://10.0.2.2:8080/api/user/create";
 
 
-    private Button loginBtn;
-    private Button signUpBtn;
+    private Button loginBtnTab;
+    private Button signUpBtnTab;
     private Button submit;
 
 
@@ -50,13 +48,19 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         transaction.hide(signUpFragment);
         transaction.show(active);
         transaction.commit();
-        loginBtn = findViewById(R.id.signup);
-        signUpBtn = findViewById(R.id.login);
-        submit = ((LoginFragment)loginFragment).getSubmitBtn();
-        loginBtn.setOnClickListener(this);
-        signUpBtn.setOnClickListener(this);
+
+        loginBtnTab = findViewById(R.id.signup);
+        signUpBtnTab = findViewById(R.id.login);
+        loginBtnTab.setOnClickListener(this);
+        signUpBtnTab.setOnClickListener(this);
     }
 
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        submit =  ((LoginFragment) loginFragment).getSubmitBtn();
+        submit.setOnClickListener(this);
+    }
 
     @Override
     public void onClick(View view) {
@@ -65,11 +69,15 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         filterChain.add(new SyntaxValidationFilter());
-        if (active instanceof LoginFragment){
+        if(view.getId() == submit.getId()){
+            user.setEmail(((LoginFragment)loginFragment).getEmail().getText().toString());
+            user.setPassword(((LoginFragment)loginFragment).getPassword().getText().toString());
             filterChain.add(new LoginAttemptFilter());
-        }else if (active instanceof SignUpFragment){
-
         }
+//        if (active instanceof LoginFragment){
+//            filterChain.add(new LoginAttemptFilter());
+//        }else if (active instanceof SignUpFragment){
+//        }
         filterChain.doFilter(user,this);
 
     }
@@ -77,19 +85,19 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
     private void alterLoginSignUpColors(View view){
         if(active instanceof SignUpFragment && view.getId() == R.id.login){
-            loginBtn.setBackgroundColor(getResources().getColor(R.color.white));
-            loginBtn.setTextColor(getResources().getColor(R.color.black));
-            signUpBtn.setBackgroundColor(getResources().getColor(R.color.black));
-            signUpBtn.setTextColor(getResources().getColor(R.color.white));
+            loginBtnTab.setBackgroundColor(getResources().getColor(R.color.white));
+            loginBtnTab.setTextColor(getResources().getColor(R.color.black));
+            signUpBtnTab.setBackgroundColor(getResources().getColor(R.color.black));
+            signUpBtnTab.setTextColor(getResources().getColor(R.color.white));
             changeActiveFragment();
 
             active = loginFragment;
             notActive = signUpFragment;
         }else if(active instanceof LoginFragment && view.getId() == R.id.signup){
-            loginBtn.setBackgroundColor(getResources().getColor(R.color.black));
-            loginBtn.setTextColor(getResources().getColor(R.color.white));
-            signUpBtn.setBackgroundColor(getResources().getColor(R.color.white));
-            signUpBtn.setTextColor(getResources().getColor(R.color.black));
+            loginBtnTab.setBackgroundColor(getResources().getColor(R.color.black));
+            loginBtnTab.setTextColor(getResources().getColor(R.color.white));
+            signUpBtnTab.setBackgroundColor(getResources().getColor(R.color.white));
+            signUpBtnTab.setTextColor(getResources().getColor(R.color.black));
             changeActiveFragment();
             active = signUpFragment;
             notActive = loginFragment;
@@ -103,6 +111,10 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         transaction.hide(active);
         transaction.show(notActive);
         transaction.commit();
+    }
+
+    public void setLoginSubmit(Button submit){
+        this.submit = submit;
     }
 
 

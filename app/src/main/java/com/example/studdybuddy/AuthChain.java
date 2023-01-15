@@ -16,12 +16,16 @@ public abstract class AuthChain {
     }
 
     public  AuthChain add(AuthChain x){
-        AuthChain last = next;
-        while (last != null){
-            last = last.next;
+        if(next == null){
+            next = x;
+        }else {
+            AuthChain last = next;
+            while (last.next != null) {
+                last = last.next;
+            }
+            last.next = x;
         }
-        last = x;
-        return last;
+        return next;
     }
 
     public abstract boolean doFilter(User user, Activity activity);
