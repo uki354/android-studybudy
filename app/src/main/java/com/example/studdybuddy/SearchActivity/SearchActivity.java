@@ -138,7 +138,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     user.setImagePath(userJson.getString("imagePath"));
                     user.setLat(userJson.getString("lat"));
                     user.setLng(userJson.getString("lng"));
-                    //                    user.setBirthdate(userJson.getString("birthdate"));
+                    user.setBirthdate(userJson.getLong("birthdate"));
                     user.setGender(userJson.getBoolean("gender"));
 
 

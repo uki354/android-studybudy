@@ -14,7 +14,7 @@ public class User implements Parcelable {
     private String lastname;
     private Boolean gender;
     private String university;
-    private Date birthdate;
+    private Long birthdate;
     private int age;
     private String currentAddress;
     private String lat;
@@ -132,11 +132,11 @@ public class User implements Parcelable {
         this.university = university;
     }
 
-    public Date getBirthdate() {
+    public long getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(Long birthdate) {
         this.birthdate = birthdate;
     }
 

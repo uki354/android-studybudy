@@ -28,11 +28,6 @@ public class SyntaxValidationFilter extends AuthChain{
             check = user.getLastname().length() > 3;
         }
 
-        if (user.getBirthdate() != null){
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                check = user.getBirthdate().before(Date.from(Instant.now()));
-            }
-        }
         checkNext(user, activity);
         return check;
 

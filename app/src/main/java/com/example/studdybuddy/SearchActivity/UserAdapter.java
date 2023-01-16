@@ -15,14 +15,16 @@ import com.bumptech.glide.Glide;
 import com.example.studdybuddy.R;
 import com.example.studdybuddy.User;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class UserAdapter extends ArrayAdapter<User> {
 
     private List<User> users;
     public static final String imagePath = "https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png";
-    public UserAdapter(Context context, int resource, List<User> users){
-        super(context, resource,users);
+
+    public UserAdapter(Context context, int resource, List<User> users) {
+        super(context, resource, users);
         this.users = users;
     }
 
@@ -49,8 +51,23 @@ public class UserAdapter extends ArrayAdapter<User> {
         locationView.setText(user.getCurrentAddress());
         universityView.setText(user.getUniversity());
         genderView.setText(user.getGender() ? "Female" : "Male");
-        ageView.setText(String.valueOf((user.getBirthdate())));
+        ageView.setText(String.valueOf(getAge(user.getBirthdate())));
         return convertView;
     }
+
+
+    private int getAge(long birthdate) {
+        Calendar dob = Calendar.getInstance();
+        dob.setTimeInMillis(birthdate);
+        Calendar today = Calendar.getInstance();
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if (today.get(Calendar.MONTH) < dob.get(Calendar.MONTH)) {
+            age--;
+        } else if (today.get(Calendar.MONTH) == dob.get(Calendar.MONTH)
+                && today.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH)) {
+            age--;
+        }
+        return age;
     }
+}
 
