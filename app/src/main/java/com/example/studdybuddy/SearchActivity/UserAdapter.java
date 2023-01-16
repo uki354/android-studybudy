@@ -48,7 +48,7 @@ public class UserAdapter extends ArrayAdapter<User> {
         nameView.setText(user.getName() + " " + user.getLastname());
         locationView.setText(user.getCurrentAddress());
         universityView.setText(user.getUniversity());
-        genderView.setText(user.getGender() ? "Male" : "Female");
+        genderView.setText(user.getGender() ? "Female" : "Male");
         ageView.setText(String.valueOf((user.getBirthdate())));
         return convertView;
     }
