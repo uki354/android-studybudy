@@ -1,6 +1,8 @@
-package com.example.studdybuddy;
+package com.example.studdybuddy.AuthActivity;
 
 import android.app.Activity;
+
+import com.example.studdybuddy.User;
 
 public abstract class AuthChain {
 

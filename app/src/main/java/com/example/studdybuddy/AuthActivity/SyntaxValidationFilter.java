@@ -1,12 +1,13 @@
-package com.example.studdybuddy;
+package com.example.studdybuddy.AuthActivity;
 
 import android.app.Activity;
-import android.os.Build;
-import java.time.Instant;
-import java.util.Date;
+
+import com.example.studdybuddy.AuthActivity.AuthChain;
+import com.example.studdybuddy.User;
+
 import java.util.regex.Pattern;
 
-public class SyntaxValidationFilter extends AuthChain{
+public class SyntaxValidationFilter extends AuthChain {
 
     private static final String emailRegex = "^[\\w!#$%&amp;'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&amp;'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 

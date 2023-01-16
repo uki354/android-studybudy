@@ -1,4 +1,4 @@
-package com.example.studdybuddy;
+package com.example.studdybuddy.AuthActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.studdybuddy.LoginFragment;
+import com.example.studdybuddy.R;
+import com.example.studdybuddy.User;
 
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener {
 

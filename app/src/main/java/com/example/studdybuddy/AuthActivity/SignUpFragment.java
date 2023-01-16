@@ -1,4 +1,4 @@
-package com.example.studdybuddy;
+package com.example.studdybuddy.AuthActivity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.studdybuddy.R;
 
 
 public class SignUpFragment extends Fragment {

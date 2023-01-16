@@ -12,8 +12,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -27,7 +25,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.studdybuddy.AuthActivity;
+import com.example.studdybuddy.AuthActivity.AuthActivity;
 import com.example.studdybuddy.JwtTokenManager;
 import com.example.studdybuddy.MapsActivity.GoogleMapsActivity;
 import com.example.studdybuddy.R;
@@ -211,7 +209,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 sb.append("lat=").append(currentLocation.getLatitude()).append("&lng=").append(currentLocation.getLongitude());
             }else if(SearchActivity.this.location != null ){
                 sb.append("lat=").append(SearchActivity.this.location.getLatitude()).append("&lng=").append(SearchActivity.this.location.getLongitude());
-            }else System.out.println("fuck");
+            }
 
         }
 

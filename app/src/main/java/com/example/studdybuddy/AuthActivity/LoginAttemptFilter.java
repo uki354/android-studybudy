@@ -1,12 +1,15 @@
-package com.example.studdybuddy;
+package com.example.studdybuddy.AuthActivity;
 
-import static com.example.studdybuddy.AuthActivity.LOGIN_URL;
+import static com.example.studdybuddy.AuthActivity.AuthActivity.LOGIN_URL;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 
+import com.example.studdybuddy.AuthActivity.AuthChain;
+import com.example.studdybuddy.JwtTokenManager;
 import com.example.studdybuddy.SearchActivity.SearchActivity;
+import com.example.studdybuddy.User;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

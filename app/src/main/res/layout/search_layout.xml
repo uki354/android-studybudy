@@ -26,14 +26,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Age"
+                    android:text="@string/age1"
                     android:fontFamily="monospace"/>
 
                 <Spinner
                     android:id="@+id/search_age"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:contentDescription="age"/>
+                    android:contentDescription="@string/age"/>
             </LinearLayout>
 
             <LinearLayout
@@ -46,13 +46,13 @@
                     android:fontFamily="monospace"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gender" />
+                    android:text="@string/gender1" />
 
                 <Spinner
                     android:id="@+id/search_gender"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:contentDescription="gender"/>
+                    android:contentDescription="@string/gender"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -71,14 +71,14 @@
                     android:fontFamily="monospace"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="University" />
+                    android:text="@string/university1" />
 
                 <Spinner
                     android:fontFamily="monospace"
                     android:id="@+id/search_university"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:contentDescription="university"/>
+                    android:contentDescription="@string/university"/>
             </LinearLayout>
 
             <LinearLayout
@@ -91,13 +91,13 @@
                     android:fontFamily="monospace"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Range" />
+                    android:text="@string/range" />
 
                 <Spinner
                     android:id="@+id/search_range"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:contentDescription="range"/>
+                    android:contentDescription="@string/range"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -111,7 +111,7 @@
                 android:id="@+id/search_nearby"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Search nearby"
+                android:text="@string/search_nearby"
                 android:layout_weight="1"
                 android:background="@drawable/shape2"
                 android:textColor="@color/white"
@@ -141,7 +141,7 @@
         android:layout_height="40dp"
         android:id="@+id/auth_logout"
         android:textSize="15sp"
-        android:text="Logout"
+        android:text="@string/logout"
         android:background="@drawable/shape3"
         android:textColor="@color/white"
         android:fontFamily="monospace"/>

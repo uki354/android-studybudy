@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.studdybuddy.AuthActivity.AuthActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, FragmentChangeListener{
 
     private final String[] landingPageText= {"Studying is more fun with a buddy",

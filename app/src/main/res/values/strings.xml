@@ -6,4 +6,16 @@
     <string name="password">password</string>
     <string name="submit">SUBMIT</string>
     <string name="title_activity_google_maps">GoogleMapsActivity</string>
+    <string name="signup">SignUp</string>
+    <string name="login">Login</string>
+    <string name="next">NEXT</string>
+    <string name="logout">Logout</string>
+    <string name="search_nearby">Search nearby</string>
+    <string name="range">range</string>
+    <string name="university">university</string>
+    <string name="gender">gender</string>
+    <string name="university1">University</string>
+    <string name="gender1">Gender</string>
+    <string name="age">age</string>
+    <string name="age1">Age</string>
 </resources>

@@ -1,10 +1,13 @@
-package com.example.studdybuddy;
+package com.example.studdybuddy.AuthActivity;
 
-import static com.example.studdybuddy.AuthActivity.LOGIN_URL;
-import static com.example.studdybuddy.AuthActivity.SIGNUP_URL;
+import static com.example.studdybuddy.AuthActivity.AuthActivity.SIGNUP_URL;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+
+import com.example.studdybuddy.AuthActivity.AuthChain;
+import com.example.studdybuddy.AuthActivity.LoginAttemptFilter;
+import com.example.studdybuddy.User;
 
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;

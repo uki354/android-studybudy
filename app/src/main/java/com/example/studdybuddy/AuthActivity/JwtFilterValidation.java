@@ -1,14 +1,17 @@
-package com.example.studdybuddy;
+package com.example.studdybuddy.AuthActivity;
 
-import static com.example.studdybuddy.AuthActivity.USER_INTENT_KEY;
+import static com.example.studdybuddy.AuthActivity.AuthActivity.USER_INTENT_KEY;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.studdybuddy.AuthActivity.AuthChain;
+import com.example.studdybuddy.JwtTokenManager;
 import com.example.studdybuddy.SearchActivity.SearchActivity;
+import com.example.studdybuddy.User;
 
-public class JwtFilterValidation extends AuthChain{
+public class JwtFilterValidation extends AuthChain {
 
     @Override
     public boolean doFilter(User user, Activity activity) {

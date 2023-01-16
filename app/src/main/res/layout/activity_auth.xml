@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AuthActivity">
+    tools:context=".AuthActivity.AuthActivity">
 
 
     <LinearLayout
@@ -23,7 +23,7 @@
             android:gravity="center"
             android:background="@color/black"
             android:textColor="@color/white"
-            android:text="Login" />
+            android:text="@string/login" />
 
         <Button
             android:id="@+id/signup"
@@ -33,7 +33,7 @@
             android:gravity="center"
             android:background="@color/white"
             android:textColor="@color/black"
-            android:text="SignUp" />
+            android:text="@string/signup" />
     </LinearLayout>
 
     <FrameLayout
@@ -42,19 +42,6 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-<!--        <fragment-->
-<!--            android:id="@+id/loginFragment"-->
-<!--            android:name="com.example.studdybuddy.Fragment1"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            tools:layout="@layout/login_layout" />-->
-
-<!--        <fragment-->
-<!--            android:id="@+id/signUpFragment"-->
-<!--            android:name="com.example.studdybuddy.Fragment1"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            tools:layout="@layout/signup_layout" />-->
 
 
 
