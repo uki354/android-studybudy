@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -24,6 +25,7 @@ public class SignUpFragment extends Fragment {
     private Spinner university;
     private DatePicker birthdate;
     private RadioGroup gender;
+    private Button signUpBtn;
 
     public static final String[] universities= {"ETF", "PMF", "FON", "SINGIDUNUM", "RAF"};
 
@@ -38,6 +40,7 @@ public class SignUpFragment extends Fragment {
        university = view.findViewById(R.id.signup_university);
        birthdate = view.findViewById(R.id.date_picker);
        gender = view.findViewById(R.id.radio_group_gender);
+       signUpBtn = view.findViewById(R.id.signUp_button);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1,universities);
         university.setAdapter(adapter);
@@ -45,4 +48,35 @@ public class SignUpFragment extends Fragment {
     }
 
 
+    public EditText getEmail() {
+        return email;
+    }
+
+    public EditText getPassword() {
+        return password;
+    }
+
+    public EditText getName() {
+        return name;
+    }
+
+    public EditText getLastName() {
+        return lastName;
+    }
+
+    public Spinner getUniversity() {
+        return university;
+    }
+
+    public DatePicker getBirthdate() {
+        return birthdate;
+    }
+
+    public RadioGroup getGender() {
+        return gender;
+    }
+
+    public Button getSignUpBtn() {
+        return signUpBtn;
+    }
 }

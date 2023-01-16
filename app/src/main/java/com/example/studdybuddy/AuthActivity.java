@@ -28,6 +28,9 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     private Button loginBtnTab;
     private Button signUpBtnTab;
     private Button submit;
+    private Button signUp;
+
+
 
 
     @Override
@@ -51,8 +54,10 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
         loginBtnTab = findViewById(R.id.signup);
         signUpBtnTab = findViewById(R.id.login);
+
         loginBtnTab.setOnClickListener(this);
         signUpBtnTab.setOnClickListener(this);
+
     }
 
     @Override
@@ -60,6 +65,8 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
         super.onPostCreate(savedInstanceState);
         submit =  ((LoginFragment) loginFragment).getSubmitBtn();
         submit.setOnClickListener(this);
+        signUp =  ((SignUpFragment) signUpFragment).getSignUpBtn();
+        signUp.setOnClickListener(this);
     }
 
     @Override
@@ -74,10 +81,16 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             user.setPassword(((LoginFragment)loginFragment).getPassword().getText().toString());
             filterChain.add(new LoginAttemptFilter());
         }
-//        if (active instanceof LoginFragment){
-//            filterChain.add(new LoginAttemptFilter());
-//        }else if (active instanceof SignUpFragment){
-//        }
+        if(view.getId() == signUp.getId()){
+            user.setName(((SignUpFragment) signUpFragment).getName().getText().toString());
+            user.setLastname(((SignUpFragment) signUpFragment).getLastName().getText().toString());
+            user.setUniversity(((SignUpFragment) signUpFragment).getUniversity().toString());
+            user.setGender(Boolean.parseBoolean(((SignUpFragment) signUpFragment).getGender().toString()));
+            user.setEmail(((SignUpFragment) signUpFragment).getEmail().getText().toString());
+            user.setPassword(((SignUpFragment) signUpFragment).getPassword().getText().toString());
+            filterChain.add(new SignUpAttemptFilter());
+        }
+
         filterChain.doFilter(user,this);
 
     }

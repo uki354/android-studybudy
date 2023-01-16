@@ -3,6 +3,7 @@ package com.example.studdybuddy.SearchActivity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -26,6 +27,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.studdybuddy.AuthActivity;
+import com.example.studdybuddy.JwtTokenManager;
 import com.example.studdybuddy.MapsActivity.GoogleMapsActivity;
 import com.example.studdybuddy.R;
 import com.example.studdybuddy.User;
@@ -49,6 +52,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     private Spinner range;
     private Button searchNearby;
     private Button submit;
+    private Button logout;
 
     private Fragment initImageFragment;
 
@@ -90,8 +94,10 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         university = findViewById(R.id.search_university);
         range = findViewById(R.id.search_range);
         searchNearby = findViewById(R.id.search_nearby);
+        logout = findViewById(R.id.auth_logout);
         submit = findViewById(R.id.search_submit);
         submit.setOnClickListener(this);
+        logout.setOnClickListener(this);
         initImageFragment = new SearchImageFragment();
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = supportFragmentManager.beginTransaction();
@@ -148,7 +154,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     Intent intent = new Intent(getApplicationContext(), GoogleMapsActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("studyUser", itemAtPosition);
-                    bundle.putString("works", "valjda works");
                     intent.putExtras(bundle);
 
                     startActivity(intent);
@@ -157,7 +162,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 e.printStackTrace();
             }
 
-
+        }else if(view.getId() == logout.getId()){
+            SharedPreferences myPrefs = getSharedPreferences("myPrefs", 0);
+            myPrefs.edit().remove(JwtTokenManager.JWT_TOKEN_KEY).apply();
+            Intent intent = new Intent(getApplicationContext(), AuthActivity.class);
+            startActivity(intent);
         }
     }
 
