@@ -256,7 +256,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             try{
                 URL url = new URL(sb.toString());
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestProperty("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2YXNrb3BvcGFAZ21haWwuY29tIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvdXNlci9sb2dpbiIsImV4cCI6MTY4ODA0NTEwNX0.uZt_ojafn8nbR7-6sV6cdI3r87aValtlpMYj6WHMq7Y");
+                connection.setRequestProperty("Authorization", "Bearer " + JwtTokenManager.getTokenFromDevice(SearchActivity.this));
                 connection.setRequestMethod("GET");
                 connection.setConnectTimeout(3000);
                 System.out.println("RESPONE CODE: "  + connection.getResponseCode());
