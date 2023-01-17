@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkIfAppIsUsedBefore(){
         SharedPreferences myPrefs = getSharedPreferences("myPrefs", MODE_PRIVATE);
         String firstTime = myPrefs.getString("firstTime", "");
-        if (firstTime.equals("")) {
+        if (!firstTime.equals("")) {
             Intent intent = new Intent(getApplicationContext(), AuthActivity.class);
             startActivity(intent);
         }else{

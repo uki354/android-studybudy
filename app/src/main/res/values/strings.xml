@@ -18,4 +18,5 @@
     <string name="gender1">Gender</string>
     <string name="age">age</string>
     <string name="age1">Age</string>
+    <string name="LandingText">Connect with other students to study together.</string>
 </resources>
