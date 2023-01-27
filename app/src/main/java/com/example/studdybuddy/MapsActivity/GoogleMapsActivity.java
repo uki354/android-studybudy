@@ -27,9 +27,8 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        User studyUser1 = extras.getParcelable("studyUser");
 
-        this.studyUser = studyUser1;
+        this.studyUser = extras.getParcelable("studyUser");
 
         binding = ActivityGoogleMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
